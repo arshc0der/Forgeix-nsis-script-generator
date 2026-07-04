@@ -14,5 +14,12 @@
         <file>RES/icons/add.svg</file>
         <file>RES/icons/remove.svg</file>
         <file>RES/icons/folder.svg</file>
+        <file>RES/icons/genrate.svg</file>
+        <file>RES/icons/script.svg</file>
+        <file>RES/icons/company.svg</file>
+        <file>RES/icons/language.svg</file>
+        <file>RES/icons/license.svg</file>
+        <file>RES/icons/check.svg</file>
+        <file>RES/icons/window.svg</file>
     </qresource>
 </RCC>

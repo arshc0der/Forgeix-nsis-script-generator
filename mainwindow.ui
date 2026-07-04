@@ -7,8 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>668</height>
+    <height>722</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -120,8 +126,105 @@ QCheckBox::indicator:hover {
 QCheckBox::indicator:checked {
     background-color: #0A84FF;
     border: 1px solid #0A84FF;
+    image: url(:/res/RES/icons/check.svg);
+}
 
-    image: url(:/icons/check.png);
+
+/* ===========================
+   QScrollArea
+   =========================== */
+
+QScrollArea {
+    background: transparent;
+    border: none;
+}
+
+QScrollArea &gt; QWidget &gt; QWidget {
+    background: transparent;
+}
+
+/* ===========================
+   Vertical ScrollBar
+   =========================== */
+
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 4px 0px 4px 0px;
+    border: none;
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(255,255,255,50);
+    min-height: 40px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: rgba(10,132,255,180);
+}
+
+QScrollBar::handle:vertical:pressed {
+    background: #0A84FF;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;
+    border: none;
+    background: none;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: transparent;
+}
+
+/* ===========================
+   Horizontal ScrollBar
+   =========================== */
+
+QScrollBar:horizontal {
+    background: transparent;
+    height: 10px;
+    margin: 0px 4px 0px 4px;
+    border: none;
+}
+
+QScrollBar::handle:horizontal {
+    background: rgba(255,255,255,50);
+    min-width: 40px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: rgba(10,132,255,180);
+}
+
+QScrollBar::handle:horizontal:pressed {
+    background: #0A84FF;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    width: 0px;
+    border: none;
+    background: none;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    background: transparent;
+}
+
+/* Remove arrow buttons */
+QScrollBar::up-arrow,
+QScrollBar::down-arrow,
+QScrollBar::left-arrow,
+QScrollBar::right-arrow {
+    background: none;
+    width: 0px;
+    height: 0px;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -370,7 +473,7 @@ border-radius: 20px;
     <item>
      <widget class="QFrame" name="frame">
       <property name="styleSheet">
-       <string notr="true">#leftPanel, #rightPanel ,#setupPanel,#DirectoryandLicensePanel{
+       <string notr="true">#leftPanel, #rightPanel ,#setupPanel,#LicensePanel,#DirectoryPanel,#GenrateScriptPanel{
     background-color: rgba(25, 25, 35, 140);
     border: 1px solid rgba(255, 255, 255, 15);
 	box-shadow: 0px 0px 20px rgba(0,0,0,80);
@@ -426,7 +529,7 @@ QTabBar {
           <enum>QTabWidget::TabPosition::North</enum>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="elideMode">
           <enum>Qt::TextElideMode::ElideNone</enum>
@@ -447,6 +550,88 @@ QTabBar {
              <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
                <layout class="QGridLayout" name="gridLayout">
+                <item row="1" column="3">
+                 <widget class="QFrame" name="verticalFrame">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_2">
+                   <item>
+                    <widget class="QLabel" name="label_10">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>App Name</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="appNameLineEdit">
+                     <property name="placeholderText">
+                      <string>Enter your app name</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="6" column="2">
+                 <widget class="QLabel" name="label_9">
+                  <property name="minimumSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/res/RES/icons/website.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QLabel" name="label_7">
+                  <property name="minimumSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/res/RES/icons/version.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
                 <item row="3" column="2">
                  <widget class="QLabel" name="label_8">
                   <property name="minimumSize">
@@ -466,6 +651,62 @@ QTabBar {
                   </property>
                   <property name="pixmap">
                    <pixmap resource="res.qrc">:/res/RES/icons/user.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QLabel" name="label">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/res/RES/icons/APPNAME.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="2">
+                 <widget class="QLabel" name="label_26">
+                  <property name="minimumSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/res/RES/icons/company.svg</pixmap>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
@@ -504,6 +745,38 @@ QTabBar {
                   </layout>
                  </widget>
                 </item>
+                <item row="4" column="3">
+                 <widget class="QFrame" name="verticalFrame">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_15">
+                   <item>
+                    <widget class="QLabel" name="label_27">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Company Name</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="companyNameLineEdit">
+                     <property name="placeholderText">
+                      <string>Enter company name</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
                 <item row="2" column="3">
                  <widget class="QFrame" name="verticalFrame_7">
                   <property name="sizePolicy">
@@ -536,89 +809,7 @@ QTabBar {
                   </layout>
                  </widget>
                 </item>
-                <item row="2" column="2">
-                 <widget class="QLabel" name="label_7">
-                  <property name="minimumSize">
-                   <size>
-                    <width>24</width>
-                    <height>24</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>48</width>
-                    <height>48</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="res.qrc">:/res/RES/icons/version.svg</pixmap>
-                  </property>
-                  <property name="scaledContents">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="3">
-                 <widget class="QFrame" name="verticalFrame">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_2">
-                   <item>
-                    <widget class="QLabel" name="label_10">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>App Name</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="appNameLineEdit">
-                     <property name="placeholderText">
-                      <string>Enter your app name</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="4" column="2">
-                 <widget class="QLabel" name="label_9">
-                  <property name="minimumSize">
-                   <size>
-                    <width>24</width>
-                    <height>24</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>48</width>
-                    <height>48</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="res.qrc">:/res/RES/icons/website.svg</pixmap>
-                  </property>
-                  <property name="scaledContents">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="3">
+                <item row="6" column="3">
                  <widget class="QFrame" name="verticalFrame_8">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -650,35 +841,53 @@ QTabBar {
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="2">
-                 <widget class="QLabel" name="label">
+                <item row="5" column="3">
+                 <widget class="QFrame" name="frame_12">
                   <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>24</width>
-                    <height>24</height>
-                   </size>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::StyledPanel</enum>
                   </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>48</width>
-                    <height>48</height>
-                   </size>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
                   </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="res.qrc">:/res/RES/icons/APPNAME.svg</pixmap>
-                  </property>
-                  <property name="scaledContents">
-                   <bool>true</bool>
-                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_26">
+                   <item>
+                    <widget class="QLabel" name="label_45">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Select Main EXE</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_25">
+                     <item>
+                      <widget class="QLineEdit" name="mainExeLineEdit">
+                       <property name="placeholderText">
+                        <string>Enter path of main exe</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="browseMainExeButton">
+                       <property name="text">
+                        <string>Browse</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
@@ -722,21 +931,21 @@ QTabBar {
                       </sizepolicy>
                      </property>
                      <property name="text">
-                      <string>Uninstaller Icon Path</string>
+                      <string>Uninstaller Icon</string>
                      </property>
                     </widget>
                    </item>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_16">
                      <item>
-                      <widget class="QLineEdit" name="iconPathLineEdit_2">
+                      <widget class="QLineEdit" name="SetupUninstallIconLineEdit">
                        <property name="placeholderText">
-                        <string>Choose Icon path</string>
+                        <string>Choose Uninstaller Icon</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_10">
+                      <widget class="QPushButton" name="SetupUninstallIconButton">
                        <property name="cursor">
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
@@ -783,6 +992,9 @@ QTabBar {
                      </item>
                      <item>
                       <widget class="QPushButton" name="browseBuildFolderButton">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Choose</string>
                        </property>
@@ -811,21 +1023,21 @@ QTabBar {
                       </sizepolicy>
                      </property>
                      <property name="text">
-                      <string>Setup Bmp Path</string>
+                      <string>Setup Bmp</string>
                      </property>
                     </widget>
                    </item>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_14">
                      <item>
-                      <widget class="QLineEdit" name="bmpPathLineEdit_2">
+                      <widget class="QLineEdit" name="SetupBPMLineEdit">
                        <property name="placeholderText">
-                        <string>Choose Bmp Path</string>
+                        <string>Choose BMP</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_8">
+                      <widget class="QPushButton" name="SetupBPMButton">
                        <property name="cursor">
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
@@ -896,21 +1108,21 @@ QTabBar {
                       </sizepolicy>
                      </property>
                      <property name="text">
-                      <string>Setup Icon Path</string>
+                      <string>Setup Icon</string>
                      </property>
                     </widget>
                    </item>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_13">
                      <item>
-                      <widget class="QLineEdit" name="exeNameLineEdit_2">
+                      <widget class="QLineEdit" name="SetupIconLineEdit">
                        <property name="placeholderText">
-                        <string>Choose Exe</string>
+                        <string>Choose Setup ICON</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_7">
+                      <widget class="QPushButton" name="SetupIconButton">
                        <property name="cursor">
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
@@ -942,21 +1154,21 @@ QTabBar {
                       </sizepolicy>
                      </property>
                      <property name="text">
-                      <string>Uninstaller Bmp Path</string>
+                      <string>Uninstaller Bmp</string>
                      </property>
                     </widget>
                    </item>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_12">
                      <item>
-                      <widget class="QLineEdit" name="licensePathLineEdit_2">
+                      <widget class="QLineEdit" name="SetupUninstallBPMLineEdit">
                        <property name="placeholderText">
-                        <string>Choose License path</string>
+                        <string>Choose Uninstaller BPM</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_6">
+                      <widget class="QPushButton" name="SetupUninstallBPMButton">
                        <property name="cursor">
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
@@ -993,7 +1205,7 @@ QTabBar {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="mainExeLineEdit">
+                    <widget class="QLineEdit" name="OutputExeLineEdit">
                      <property name="placeholderText">
                       <string>Enter Exe Name</string>
                      </property>
@@ -1066,13 +1278,552 @@ QTabBar {
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="DirectoryandLicencetab">
+         <widget class="QWidget" name="Licensetab">
           <attribute name="title">
-           <string>Directory and License</string>
+           <string>License</string>
+          </attribute>
+          <layout class="QHBoxLayout" name="horizontalLayout_23">
+           <item>
+            <widget class="QFrame" name="LicensePanel">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_20">
+              <item>
+               <layout class="QGridLayout" name="gridLayout_5">
+                <item row="11" column="3">
+                 <widget class="QFrame" name="verticalFrame_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_22">
+                   <item>
+                    <widget class="QLabel" name="label_40">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Website After Installation</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="finishWebsiteLineEdit">
+                     <property name="placeholderText">
+                      <string>Enter Url https://mycompany.com</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="10" column="3">
+                 <widget class="QFrame" name="verticalFrame">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_21">
+                   <item>
+                    <widget class="QLabel" name="label_38">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Readme File Path - Shown After Instllation</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QFrame" name="frame_7">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="frameShape">
+                      <enum>QFrame::Shape::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Shadow::Raised</enum>
+                     </property>
+                     <layout class="QHBoxLayout" name="horizontalLayout_21">
+                      <item>
+                       <widget class="QLineEdit" name="readmeFileLineEdit">
+                        <property name="placeholderText">
+                         <string>Enter readme file path</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="browseReadmeButton">
+                        <property name="text">
+                         <string>Choose</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="9" column="2">
+                 <widget class="QLabel" name="label_33">
+                  <property name="minimumSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/res/RES/icons/license.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="12" column="2">
+                 <widget class="QLabel" name="label_31">
+                  <property name="minimumSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/res/RES/icons/language.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="3">
+                 <widget class="QFrame" name="verticalFrame_5">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_17">
+                   <item>
+                    <widget class="QLabel" name="label_34">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>GUI Style</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="guiStyleComboBox">
+                     <property name="styleSheet">
+                      <string notr="true">QComboBox {
+    background-color: rgba(255, 255, 255, 20);
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 25);
+    border-radius: 8px;
+
+    padding: 6px 12px;
+
+    min-height: 28px;
+}
+
+QComboBox:hover {
+    background-color: rgba(255,255,255,30);
+    border: 1px solid rgba(90,140,255,120);
+}
+
+QComboBox:focus {
+    border: 1px solid rgb(0,122,255);
+}
+
+QComboBox:disabled {
+    background-color: rgba(255,255,255,10);
+    color: rgba(255,255,255,80);
+}
+
+/* Arrow area */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+
+    width: 30px;
+
+    border: none;
+    background: transparent;
+}
+
+/* Arrow */
+QComboBox::down-arrow {
+    image: none;
+    width: 10px;
+    height: 10px;
+}
+
+/* Popup list */
+QComboBox QAbstractItemView {
+
+    background-color: rgba(35,35,40,240);
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,20);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    selection-background-color: rgba(0,122,255,180);
+
+    selection-color: white;
+
+    padding: 4px;
+}
+
+/* Items */
+QComboBox QAbstractItemView::item {
+    height: 28px;
+    padding-left: 10px;
+    border-radius: 6px;
+}
+
+/* Hover item */
+QComboBox QAbstractItemView::item:hover {
+    background-color: rgba(255,255,255,18);
+}
+
+/* Selected item */
+QComboBox QAbstractItemView::item:selected {
+    background-color: rgba(0,122,255,180);
+    color: white;
+}</string>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>Modern UI 2</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Modern UI</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Classic NSIS</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="12" column="3">
+                 <widget class="QFrame" name="frame_8">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_19">
+                   <item>
+                    <widget class="QLabel" name="label_35">
+                     <property name="text">
+                      <string>Setup Language</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QScrollArea" name="scrollArea">
+                     <property name="widgetResizable">
+                      <bool>true</bool>
+                     </property>
+                     <widget class="QWidget" name="scrollAreaWidgetContents">
+                      <property name="geometry">
+                       <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>629</width>
+                        <height>90</height>
+                       </rect>
+                      </property>
+                      <layout class="QGridLayout" name="gridLayout_6">
+                       <item row="0" column="2">
+                        <widget class="QCheckBox" name="russianCheckBox">
+                         <property name="text">
+                          <string>Russian</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="2">
+                        <widget class="QCheckBox" name="koreanCheckBox">
+                         <property name="text">
+                          <string>Korean</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="1">
+                        <widget class="QCheckBox" name="portugueseCheckBox">
+                         <property name="text">
+                          <string>Portuguese</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="0">
+                        <widget class="QCheckBox" name="germanCheckBox">
+                         <property name="text">
+                          <string>German</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QCheckBox" name="italianCheckBox">
+                         <property name="text">
+                          <string>Italian</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="0">
+                        <widget class="QCheckBox" name="englishCheckBox">
+                         <property name="text">
+                          <string>English</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="1">
+                        <widget class="QCheckBox" name="spanishCheckBox">
+                         <property name="text">
+                          <string>Spanish</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QCheckBox" name="frenchCheckBox">
+                         <property name="text">
+                          <string>French</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="2">
+                        <widget class="QCheckBox" name="japaneseCheckBox">
+                         <property name="text">
+                          <string>Japanese</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="3">
+                        <widget class="QCheckBox" name="chineseCheckBox">
+                         <property name="text">
+                          <string>Chinese</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="9" column="3">
+                 <widget class="QFrame" name="verticalFrame_6">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_20">
+                   <item>
+                    <widget class="QLabel" name="label_36">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>License File</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QFrame" name="frame_9">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="frameShape">
+                      <enum>QFrame::Shape::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Shadow::Raised</enum>
+                     </property>
+                     <layout class="QHBoxLayout" name="horizontalLayout_22">
+                      <item>
+                       <widget class="QLineEdit" name="licenseFileLineEdit">
+                        <property name="placeholderText">
+                         <string>Enter Installation Directory Path</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="browseLicenseButton">
+                        <property name="text">
+                         <string>Choose</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="11" column="2">
+                 <widget class="QLabel" name="label_39">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="2">
+                 <widget class="QLabel" name="label_29">
+                  <property name="minimumSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/res/RES/icons/window.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="10" column="2">
+                 <widget class="QLabel" name="label_37">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="3">
+                 <widget class="QFrame" name="gridFrame">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_7">
+                   <item row="0" column="0">
+                    <widget class="QCheckBox" name="showUninstallSuccessCheckBox">
+                     <property name="text">
+                      <string>Show Uninstall Success Message</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QCheckBox" name="showUninstallPromptCheckBox">
+                     <property name="text">
+                      <string>Uninstall Confirmation</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QCheckBox" name="showReadmeCheckBox">
+                     <property name="text">
+                      <string>Show Readme</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QCheckBox" name="openWebsiteCheckBox">
+                     <property name="text">
+                      <string>Open Website</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="Directorytab">
+          <attribute name="title">
+           <string>Directory </string>
           </attribute>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
-            <widget class="QFrame" name="DirectoryandLicensePanel">
+            <widget class="QFrame" name="DirectoryPanel">
              <property name="frameShape">
               <enum>QFrame::Shape::StyledPanel</enum>
              </property>
@@ -1082,43 +1833,188 @@ QTabBar {
              <layout class="QHBoxLayout" name="horizontalLayout_15">
               <item>
                <layout class="QGridLayout" name="gridLayout_3">
+                <item row="5" column="2">
+                 <widget class="QLabel" name="label_6">
+                  <property name="minimumSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/res/RES/icons/compress.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="11" column="3">
+                 <widget class="QCheckBox" name="relativePathCheckBox">
+                  <property name="text">
+                   <string>Convert Absolute Paths to Relative</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="3">
+                 <widget class="QCheckBox" name="desktopShortcutCheckBox">
+                  <property name="text">
+                   <string>Desktop Shortcut</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="14" column="2">
+                 <widget class="QLabel" name="label_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/res/RES/icons/tree.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="15" column="3">
+                 <widget class="QFrame" name="frame_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_7">
+                   <item>
+                    <widget class="QPushButton" name="addFilesButton">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>Add Files</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normalon>:/res/RES/icons/add.svg</normalon>
+                      </iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>24</width>
+                       <height>24</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="addFolderButton">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>Add Folder</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normalon>:/res/RES/icons/folder.svg</normalon>
+                      </iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>24</width>
+                       <height>24</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="removeSelectedButton">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>Remove</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normalon>:/res/RES/icons/remove.svg</normalon>
+                      </iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>24</width>
+                       <height>24</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
                 <item row="6" column="3">
-                 <widget class="QCheckBox" name="checkBox_2">
+                 <widget class="QCheckBox" name="runAfterCheckBox">
                   <property name="text">
                    <string>Run After</string>
                   </property>
                  </widget>
                 </item>
-                <item row="9" column="3">
-                 <widget class="QFrame" name="verticalFrame_4">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
+                <item row="12" column="2">
+                 <widget class="QLabel" name="label_12">
+                  <property name="minimumSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
                   </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_9">
-                   <item>
-                    <widget class="QLabel" name="label_15">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>Installation Directory</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="defaultDirLineEdit">
-                     <property name="placeholderText">
-                      <string>Enter Installation Directory Path</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                  <property name="maximumSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/res/RES/icons/system.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="9" column="3">
+                 <widget class="QCheckBox" name="startMenuShortcutCheckBox">
+                  <property name="text">
+                   <string>Start Menu Shortcut</string>
+                  </property>
                  </widget>
                 </item>
                 <item row="5" column="3">
@@ -1230,17 +2126,17 @@ QComboBox QAbstractItemView::item:selected {
                      </property>
                      <item>
                       <property name="text">
-                       <string>lzma</string>
+                       <string>LZMA</string>
                       </property>
                      </item>
                      <item>
                       <property name="text">
-                       <string>zlib</string>
+                       <string>ZLIB</string>
                       </property>
                      </item>
                      <item>
                       <property name="text">
-                       <string>bzip2</string>
+                       <string>BZIP2</string>
                       </property>
                      </item>
                     </widget>
@@ -1248,67 +2144,32 @@ QComboBox QAbstractItemView::item:selected {
                   </layout>
                  </widget>
                 </item>
-                <item row="7" column="3">
-                 <widget class="QCheckBox" name="checkBox">
-                  <property name="text">
-                   <string>Desktop Shortcut</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="10" column="2">
-                 <widget class="QLabel" name="label_2">
+                <item row="14" column="3">
+                 <widget class="QFrame" name="frame_3">
                   <property name="minimumSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>0</width>
+                    <height>0</height>
                    </size>
                   </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>48</width>
-                    <height>48</height>
-                   </size>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::StyledPanel</enum>
                   </property>
-                  <property name="text">
-                   <string/>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
                   </property>
-                  <property name="pixmap">
-                   <pixmap resource="res.qrc">:/res/RES/icons/tree.svg</pixmap>
-                  </property>
-                  <property name="scaledContents">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="9" column="2">
-                 <widget class="QLabel" name="label_12">
-                  <property name="minimumSize">
-                   <size>
-                    <width>24</width>
-                    <height>24</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>48</width>
-                    <height>48</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="res.qrc">:/res/RES/icons/system.svg</pixmap>
-                  </property>
-                  <property name="scaledContents">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="10" column="3">
-                 <widget class="QTreeWidget" name="filesTreeWidget">
-                  <property name="styleSheet">
-                   <string notr="true">QTreeWidget {
+                  <layout class="QVBoxLayout" name="verticalLayout_4">
+                   <item>
+                    <widget class="QLabel" name="label_4">
+                     <property name="text">
+                      <string>Software Files and Folder</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTreeWidget" name="filesTreeWidget">
+                     <property name="styleSheet">
+                      <string notr="true">QTreeWidget {
     background-color: rgba(25, 25, 30, 160);
     border: 1px solid rgba(255, 255, 255, 15);
     border-radius: 10px;
@@ -1351,21 +2212,117 @@ QTreeWidget::item:selected {
 QTreeWidget:focus {
     border: 1px solid #0A84FF;
 }</string>
-                  </property>
-                  <column>
-                   <property name="text">
-                    <string>Name</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Path</string>
-                   </property>
-                  </column>
+                     </property>
+                     <column>
+                      <property name="text">
+                       <string>Name</string>
+                      </property>
+                     </column>
+                     <column>
+                      <property name="text">
+                       <string>Path</string>
+                      </property>
+                     </column>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                 <item row="12" column="3">
-                 <widget class="QFrame" name="frame_2">
+                 <widget class="QFrame" name="verticalFrame_4">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_9">
+                   <item>
+                    <widget class="QLabel" name="label_15">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Installation Directory</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QFrame" name="frame_6">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="frameShape">
+                      <enum>QFrame::Shape::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Shadow::Raised</enum>
+                     </property>
+                     <layout class="QHBoxLayout" name="horizontalLayout_19">
+                      <item>
+                       <widget class="QLineEdit" name="defaultDirLineEdit">
+                        <property name="placeholderText">
+                         <string>Enter Installation Directory Path</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="defaultDirButton">
+                        <property name="text">
+                         <string>Choose</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="10" column="3">
+                 <widget class="QCheckBox" name="quickLaunchShortcutCheckBox">
+                  <property name="text">
+                   <string>Quick Launch Shortcut</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="GenrateScripttab">
+          <attribute name="title">
+           <string>Genrate Script</string>
+          </attribute>
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QFrame" name="GenrateScriptPanel">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
+              <item>
+               <layout class="QGridLayout" name="gridLayout_4">
+                <item row="7" column="3">
+                 <widget class="QFrame" name="frame_10">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -1378,82 +2335,51 @@ QTreeWidget:focus {
                   <property name="frameShadow">
                    <enum>QFrame::Shadow::Raised</enum>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_7">
+                  <layout class="QVBoxLayout" name="verticalLayout_23">
                    <item>
-                    <widget class="QPushButton" name="addFilesButton">
-                     <property name="cursor">
-                      <cursorShape>PointingHandCursor</cursorShape>
+                    <widget class="QLabel" name="label_41">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
                      </property>
                      <property name="text">
-                      <string>Add Files</string>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normalon>:/res/RES/icons/add.svg</normalon>
-                      </iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>24</width>
-                       <height>24</height>
-                      </size>
+                      <string>Script Save Path</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="addFolderButton">
-                     <property name="cursor">
-                      <cursorShape>PointingHandCursor</cursorShape>
+                    <widget class="QFrame" name="horizontalFrame">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
                      </property>
-                     <property name="text">
-                      <string>Add Folder</string>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normalon>:/res/RES/icons/folder.svg</normalon>
-                      </iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>24</width>
-                       <height>24</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="removeSelectedButton">
-                     <property name="cursor">
-                      <cursorShape>PointingHandCursor</cursorShape>
-                     </property>
-                     <property name="text">
-                      <string>Remove</string>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normalon>:/res/RES/icons/remove.svg</normalon>
-                      </iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>24</width>
-                       <height>24</height>
-                      </size>
-                     </property>
+                     <layout class="QHBoxLayout" name="horizontalLayout_24">
+                      <item>
+                       <widget class="QLineEdit" name="scriptSavePathLineEdit">
+                        <property name="placeholderText">
+                         <string>Enter Path to Save the Script</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="scriptSavePathButton">
+                        <property name="text">
+                         <string>Choose</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
                     </widget>
                    </item>
                   </layout>
                  </widget>
                 </item>
-                <item row="8" column="3">
-                 <widget class="QCheckBox" name="checkBox_3">
-                  <property name="text">
-                   <string>Start Menu Shortcut</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="2">
-                 <widget class="QLabel" name="label_6">
+                <item row="6" column="2">
+                 <widget class="QLabel" name="label_32">
                   <property name="minimumSize">
                    <size>
                     <width>24</width>
@@ -1470,10 +2396,268 @@ QTreeWidget:focus {
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap resource="res.qrc">:/res/RES/icons/compress.svg</pixmap>
+                   <pixmap resource="res.qrc">:/res/RES/icons/script.svg</pixmap>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="3">
+                 <widget class="QFrame" name="frame_4">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_8">
+                   <item>
+                    <spacer name="horizontalSpacer_3">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="generateButton">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>Genrate Script</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normalon>:/res/RES/icons/genrate.svg</normalon>
+                      </iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>24</width>
+                       <height>24</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="saveScriptButton">
+                     <property name="text">
+                      <string>Save Script</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QLabel" name="label_43">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QFrame" name="frame_11">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_24">
+                   <item>
+                    <widget class="QLabel" name="label_44">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Install Mode</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="installModeComboBox">
+                     <property name="styleSheet">
+                      <string notr="true">QComboBox {
+    background-color: rgba(255, 255, 255, 20);
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 25);
+    border-radius: 8px;
+
+    padding: 6px 12px;
+
+    min-height: 28px;
+}
+
+QComboBox:hover {
+    background-color: rgba(255,255,255,30);
+    border: 1px solid rgba(90,140,255,120);
+}
+
+QComboBox:focus {
+    border: 1px solid rgb(0,122,255);
+}
+
+QComboBox:disabled {
+    background-color: rgba(255,255,255,10);
+    color: rgba(255,255,255,80);
+}
+
+/* Arrow area */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+
+    width: 30px;
+
+    border: none;
+    background: transparent;
+}
+
+/* Arrow */
+QComboBox::down-arrow {
+    image: none;
+    width: 10px;
+    height: 10px;
+}
+
+/* Popup list */
+QComboBox QAbstractItemView {
+
+    background-color: rgba(35,35,40,240);
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,20);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    selection-background-color: rgba(0,122,255,180);
+
+    selection-color: white;
+
+    padding: 4px;
+}
+
+/* Items */
+QComboBox QAbstractItemView::item {
+    height: 28px;
+    padding-left: 10px;
+    border-radius: 6px;
+}
+
+/* Hover item */
+QComboBox QAbstractItemView::item:hover {
+    background-color: rgba(255,255,255,18);
+}
+
+/* Selected item */
+QComboBox QAbstractItemView::item:selected {
+    background-color: rgba(0,122,255,180);
+    color: white;
+}</string>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>All Users</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Current User</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="6" column="3">
+                 <widget class="QFrame" name="frame_5">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_7">
+                   <item>
+                    <widget class="QLabel" name="label_24">
+                     <property name="text">
+                      <string>Preview Script</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QScrollArea" name="scrollArea_2">
+                     <property name="widgetResizable">
+                      <bool>true</bool>
+                     </property>
+                     <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                      <property name="geometry">
+                       <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>629</width>
+                        <height>232</height>
+                       </rect>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_25">
+                       <item>
+                        <widget class="QPlainTextEdit" name="scriptPreviewEdit">
+                         <property name="readOnly">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="7" column="2">
+                 <widget class="QLabel" name="label_42">
+                  <property name="text">
+                   <string>TextLabel</string>
                   </property>
                  </widget>
                 </item>
