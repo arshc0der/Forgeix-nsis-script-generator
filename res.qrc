@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>RES/icons/APPNAME.svg</file>
+        <file>RES/icons/user.svg</file>
+        <file>RES/icons/website.svg</file>
+        <file>RES/icons/version.svg</file>
+        <file>RES/icons/install.svg</file>
+        <file>RES/icons/uninstall.svg</file>
+        <file>RES/icons/drive.svg</file>
+        <file>RES/icons/info.svg</file>
+        <file>RES/icons/system.svg</file>
+        <file>RES/icons/compress.svg</file>
+        <file>RES/icons/tree.svg</file>
+        <file>RES/icons/add.svg</file>
+        <file>RES/icons/remove.svg</file>
+        <file>RES/icons/folder.svg</file>
+    </qresource>
+</RCC>
