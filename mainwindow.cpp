@@ -878,26 +878,13 @@ QString MainWindow::generateNsisScript()
         }
         else if (type == "FOLDER")
         {
-            if (preserveRelative)
-            {
-                // Recreate the folder's own subtree explicitly, file by
-                // file, so it honors the same relative-path logic as
-                // everything else instead of being a special case.
-                for (int c = 0; c < item->childCount(); ++c)
-                {
-                    QTreeWidgetItem *child = item->child(c);
-                    if (child->data(0, Qt::UserRole).toString() == "FILE")
-                        emitFile(child->text(1));
-                }
-                continue; // children already handled above; skip the generic loop below
-            }
-            else
-            {
-                script += "    SetOutPath \"$INSTDIR\"\n";
-                lastOutPath = "$INSTDIR";
-                script += "    File /r \"" + toNsisPath(escapeNsisString(path)) + "\\*.*\"\n";
-                continue; // File /r already pulled in all children; don't re-emit them below
-            }
+            script += "    SetOutPath \"$INSTDIR\"\n";
+            lastOutPath = "$INSTDIR";
+
+            // The \\*.* wildcard tells NSIS to natively copy ONLY the contents of the folder,
+            // bypassing the parent folder name entirely so files go directly into $INSTDIR.
+            script += "    File /r \"" + toNsisPath(escapeNsisString(path)) + "\\*.*\"\n";
+            continue;
         }
 
         // Reached only for FILE top-level items with children (not expected
