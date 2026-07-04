@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Forgeix</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -275,7 +275,7 @@ border-radius: 20px;
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QFrame" name="">
+        <widget class="QFrame" name="frame">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -3200,7 +3200,7 @@ QComboBox QAbstractItemView::item:selected {
                    <x>0</x>
                    <y>0</y>
                    <width>696</width>
-                   <height>1000</height>
+                   <height>1016</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_27">
