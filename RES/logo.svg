@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glowStrong" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <linearGradient id="paneTop" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#77ccff" stop-opacity="0.05" />
+    </linearGradient>
+    <linearGradient id="paneLeft" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#44aaff" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0033aa" stop-opacity="0.05" />
+    </linearGradient>
+    <linearGradient id="paneRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#44aaff" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0033aa" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="edgeTop" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#aaddff" stop-opacity="0.4" />
+    </linearGradient>
+    <linearGradient id="edgeSides" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#aaddff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0055ff" stop-opacity="0.3" />
+    </linearGradient>
+  </defs>
+
+  <path d="M 250,105 L 375,178 L 375,322 L 250,395 L 125,322 L 125,178 Z" fill="#050814" />
+
+  <g stroke="#00ffff" fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <g stroke-width="1.5" opacity="0.8" filter="url(#glow)">
+      <polygon points="250,170 190,205 250,240 310,205" />
+      <polygon points="250,240 190,205 190,275 250,310" />
+      <polygon points="250,240 310,205 310,275 250,310" />
+    </g>
+
+    <g stroke-width="1" opacity="0.6">
+      <path d="M 250,170 L 250,130 M 220,188 L 250,170 L 280,188" />
+      <path d="M 250,205 L 220,188 M 250,205 L 280,188" stroke-dasharray="3 3"/>
+      <path d="M 190,205 L 150,182" />
+      <path d="M 220,222 L 220,257 L 180,280" />
+      <path d="M 205,240 L 185,252 L 185,290" />
+      <path d="M 170,216 L 170,250" stroke-dasharray="2 2" />
+      <path d="M 310,205 L 350,182" />
+      <path d="M 280,222 L 280,257 L 320,280" />
+      <path d="M 295,240 L 315,252 L 315,290" />
+      <path d="M 330,216 L 330,250" stroke-dasharray="2 2" />
+      <path d="M 250,240 L 250,350" stroke-width="2" filter="url(#glow)" opacity="0.9"/>
+    </g>
+
+    <g fill="#ffffff" filter="url(#glow)">
+      <circle cx="250" cy="240" r="3.5" />
+      <circle cx="190" cy="205" r="2.5" />
+      <circle cx="310" cy="205" r="2.5" />
+      <circle cx="250" cy="170" r="2.5" />
+      <circle cx="250" cy="130" r="1.5" />
+      <circle cx="150" cy="182" r="1.5" />
+      <circle cx="350" cy="182" r="1.5" />
+      <circle cx="280" cy="257" r="1.5" />
+      <circle cx="220" cy="257" r="1.5" />
+      <circle cx="250" cy="310" r="2.5" fill="#00ffff"/>
+      <circle cx="250" cy="350" r="1.5" />
+      <circle cx="320" cy="280" r="1.5" />
+      <circle cx="180" cy="280" r="1.5" />
+    </g>
+  </g>
+
+  <g stroke-linejoin="round">
+    
+    <path d="M 250,105 L 375,178 L 375,322 L 250,395 L 125,322 L 125,178 Z" 
+          fill="none" stroke="#0055ff" stroke-width="35" filter="url(#glowStrong)" opacity="0.5"/>
+
+    <path d="M 250,250 L 125,178 L 250,105 L 375,178 Z" fill="url(#paneTop)" />
+    <path d="M 250,250 L 125,178 L 125,322 L 250,395 Z" fill="url(#paneLeft)" />
+    <path d="M 250,250 L 375,178 L 375,322 L 250,395 Z" fill="url(#paneRight)" />
+
+    <g fill="none" stroke-width="26" opacity="0.85">
+      <path d="M 250,250 L 125,178 L 250,105 L 375,178 Z" stroke="url(#edgeTop)" />
+      <path d="M 250,250 L 125,178 L 125,322 L 250,395 Z" stroke="url(#edgeSides)" />
+      <path d="M 250,250 L 375,178 L 375,322 L 250,395 Z" stroke="url(#edgeSides)" />
+    </g>
+
+    <g fill="none" stroke="#ffffff" stroke-width="3" filter="url(#glow)" opacity="0.9">
+      <path d="M 250,250 L 125,178 L 250,105 L 375,178 Z" />
+      <path d="M 250,250 L 125,178 L 125,322 L 250,395 Z" />
+      <path d="M 250,250 L 375,178 L 375,322 L 250,395 Z" />
+    </g>
+
+    <path d="M 125,322 L 250,395 L 375,322" fill="none" stroke="#aaddff" stroke-width="8" stroke-linecap="round" filter="url(#glowStrong)" />
+    <path d="M 250,250 L 250,395" fill="none" stroke="#aaddff" stroke-width="6" stroke-linecap="round" filter="url(#glow)" />
+    <path d="M 250,105 L 250,135" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" filter="url(#glow)" opacity="0.8"/>
+  </g>
+</svg>

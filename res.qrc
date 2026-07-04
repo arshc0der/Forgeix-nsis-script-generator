@@ -21,5 +21,18 @@
         <file>RES/icons/license.svg</file>
         <file>RES/icons/check.svg</file>
         <file>RES/icons/window.svg</file>
+        <file>RES/logo.svg</file>
+        <file>RES/icons/executable_ico.svg</file>
+        <file>RES/icons/folder-open.svg</file>
+        <file>RES/icons/folder-regular.svg</file>
+        <file>RES/icons/folder-tree.svg</file>
+        <file>RES/icons/BPM_Setup.svg</file>
+        <file>RES/icons/BPM_Uninstall.svg</file>
+        <file>RES/icons/build.svg</file>
+        <file>RES/icons/readme.svg</file>
+        <file>RES/icons/web.svg</file>
+        <file>RES/icons/code.svg</file>
+        <file>RES/icons/save.svg</file>
+        <file>RES/icons/chevron-down.svg</file>
     </qresource>
 </RCC>
