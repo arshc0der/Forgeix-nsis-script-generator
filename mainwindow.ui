@@ -35,6 +35,10 @@ QMainWindow {
     background: transparent;
 }
 
+
+QMessageBox { background-color: #2D2D2D; }
+QMessageBox QLabel { color: white; }
+
 /* LEFT + RIGHT PANELS */
 #leftPanel, #rightPanel {
     background-color: rgba(25, 25, 35, 160);
@@ -530,7 +534,7 @@ border-radius: 20px;
      </widget>
     </item>
     <item>
-     <widget class="QFrame" name="frame">
+     <widget class="QFrame" name="mainframe">
       <property name="styleSheet">
        <string notr="true">#leftPanel, #rightPanel ,#setupPanel,#LicensePanel,#DirectoryPanel,#GenrateScriptPanel,#InfoFramePanel{
     background-color: rgba(25, 25, 35, 140);
@@ -539,7 +543,9 @@ border-radius: 20px;
     border-radius: 18px;
 }
 
-</string>
+#mainframe{
+background-color: #2D2D2D;
+}</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::Shape::StyledPanel</enum>
@@ -1821,6 +1827,9 @@ QComboBox QAbstractItemView::item:selected {
                     <height>0</height>
                    </size>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: #2D2D2D;</string>
+                  </property>
                   <property name="frameShape">
                    <enum>QFrame::Shape::StyledPanel</enum>
                   </property>
@@ -2337,6 +2346,9 @@ border: none;
                     <width>0</width>
                     <height>0</height>
                    </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: #2D2D2D;</string>
                   </property>
                   <property name="frameShape">
                    <enum>QFrame::Shape::StyledPanel</enum>
@@ -3068,7 +3080,7 @@ QComboBox QAbstractItemView::item:selected {
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true"/>
+                   <string notr="true">background-color:#2D2D2D;</string>
                   </property>
                   <property name="frameShape">
                    <enum>QFrame::Shape::StyledPanel</enum>
@@ -3101,8 +3113,14 @@ QComboBox QAbstractItemView::item:selected {
                       <layout class="QVBoxLayout" name="verticalLayout_25">
                        <item>
                         <widget class="QPlainTextEdit" name="scriptPreviewEdit">
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(255, 255, 255);</string>
+                         </property>
                          <property name="readOnly">
                           <bool>true</bool>
+                         </property>
+                         <property name="plainText">
+                          <string/>
                          </property>
                         </widget>
                        </item>
@@ -3182,6 +3200,9 @@ QComboBox QAbstractItemView::item:selected {
           <layout class="QHBoxLayout" name="horizontalLayout_26">
            <item>
             <widget class="QFrame" name="InfoFramePanel">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
              <property name="frameShape">
               <enum>QFrame::Shape::StyledPanel</enum>
              </property>
@@ -3231,6 +3252,9 @@ Version 1.0.0</string>
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: #2D2D2D;</string>
                     </property>
                     <property name="frameShape">
                      <enum>QFrame::Shape::StyledPanel</enum>
@@ -3285,6 +3309,10 @@ Version 1.0.0</string>
                     <layout class="QGridLayout" name="gridLayout_8">
                      <item row="0" column="0">
                       <widget class="QFrame" name="frame_14">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: #2D2D2D;
+color: rgb(255, 255, 255);</string>
+                       </property>
                        <property name="frameShape">
                         <enum>QFrame::Shape::StyledPanel</enum>
                        </property>
@@ -3314,6 +3342,10 @@ Platform    Windows x64</string>
                      </item>
                      <item row="0" column="1">
                       <widget class="QFrame" name="frame_15">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: #2D2D2D;
+color: rgb(255, 255, 255);</string>
+                       </property>
                        <property name="frameShape">
                         <enum>QFrame::Shape::StyledPanel</enum>
                        </property>
