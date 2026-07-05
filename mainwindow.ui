@@ -3219,7 +3219,7 @@ QComboBox QAbstractItemView::item:selected {
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>0</y>
+                   <y>-504</y>
                    <width>696</width>
                    <height>1016</height>
                   </rect>
@@ -3328,12 +3328,11 @@ color: rgb(255, 255, 255);</string>
                           <property name="plainText">
                            <string>Application
 
-Name        Forgeix
-Version     1.0.0
-Framework   Qt 6
-Language    C++
-Installer   NSIS
-Platform    Windows x64</string>
+Name            Forgeix
+Version          1.0.1
+Framework    Qt 6
+Language       C++
+Installer           NSIS</string>
                           </property>
                          </widget>
                         </item>
